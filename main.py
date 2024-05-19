@@ -1,3 +1,4 @@
+# main.py
 import telepot
 from telepot.loop import MessageLoop
 import time
@@ -22,5 +23,10 @@ def handle(msg):
         telepot.Bot(TELEGRAM_BOT_TOKEN).sendMessage(chat_id, 'Unknown command. Type /help to see the available commands.')
 
 bot = telepot.Bot(TELEGRAM_BOT_TOKEN)
-MessageLoop(bot
-  
+MessageLoop(bot, handle).run_as_thread()
+
+print('Bot is listening...')
+
+# Keep the program running
+while True:
+    time.sleep(10)
